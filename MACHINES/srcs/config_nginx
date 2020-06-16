@@ -1,0 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    config_nginx                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pcoureau <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/02/03 17:04:00 by pcoureau          #+#    #+#              #
+#    Updated: 2020/02/03 20:55:10 by pcoureau         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name localhost www.localhost;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
